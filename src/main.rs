@@ -15,7 +15,7 @@ fn main() {
     loop {
         println!("converta o em celsius para fahrenheit");
 
-        /// input opção usuário.
+        // input opção usuário.
         println!("Escolha o tipo da conversão:");
         println!("Digite 1-Celsius");
         println!("Digite 2-Fahrenheit");
@@ -23,12 +23,12 @@ fn main() {
 
         let mut esc = String::new();
 
-        /// Lendo as informações informadas dos usuários.
+        // Lendo as informações informadas dos usuários.
         io::stdin()
                 .read_line(&mut esc)
                 .expect("Escolha errada");
 
-        /// Converte a informação de string para numérico.
+        // Converte a informação de string para numérico.
         let _esc:f32 = match esc.trim().parse() {
             Ok(num) => num,
             Err(_e) => {
@@ -36,16 +36,16 @@ fn main() {
             }
         };
 
-        /// Input temperatura usuário.
+        // Input temperatura usuário.
         println!("Digite a temperatura: ");
         let mut temperatura = String::new();
 
-        /// Lendo as informações do usuário.
+        // Lendo as informações do usuário.
         io::stdin()
             .read_line(&mut temperatura)
             .expect("Temperatura errada");
 
-        /// Converte a informação de string para numérico.
+        // Converte a informação de string para numérico.
         let temperatura:f32 = match temperatura.trim().parse() {
             Ok(num) => num,
             Err(_e) => {
@@ -53,7 +53,7 @@ fn main() {
             }
         };
 
-        /// Selecionando a opção do usuário.
+        // Selecionando a opção do usuário.
         if _esc == 1.0{
             let c:f32 = celsius(temperatura);
             println!("temperatura em celsius: {c}");
