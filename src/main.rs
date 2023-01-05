@@ -36,34 +36,38 @@ fn main() {
             }
         };
 
-        // Input temperatura usuário.
-        println!("Digite a temperatura: ");
-        let mut temperatura = String::new();
+        if _esc == 1.0 || _esc == 2.0 {
+            // Input temperatura usuário.
+            println!("Digite a temperatura: ");
+            let mut temperatura = String::new();
 
-        // Lendo as informações do usuário.
-        io::stdin()
-            .read_line(&mut temperatura)
-            .expect("Temperatura errada");
+            // Lendo as informações do usuário.
+            io::stdin()
+                .read_line(&mut temperatura)
+                .expect("Temperatura errada");
 
-        // Converte a informação de string para numérico.
-        let temperatura:f32 = match temperatura.trim().parse() {
-            Ok(num) => num,
-            Err(_e) => {
-                -1.00
-            }
-        };
+            // Converte a informação de string para numérico.
+            let temperatura:f32 = match temperatura.trim().parse() {
+                Ok(num) => num,
+                Err(_e) => {
+                    -1.00
+                }
+            };
 
-        // Selecionando a opção do usuário.
-        if _esc == 1.0{
-            let c:f32 = celsius(temperatura);
-            println!("temperatura em celsius: {c}");
+            // Selecionando a opção do usuário.
+            if _esc == 1.0{
+                let c:f32 = celsius(temperatura);
+                println!("temperatura em celsius: {c}");
+                break;
+            }else if _esc ==2.0{
+                let f:f32 = fahrenheit(temperatura);
+                println!("temperatura em fahrenheit: {f}");
+                break;
+            }else{
+                break;
+            };
+        }else {
             break;
-        }else if _esc ==2.0{
-            let f:f32 = fahrenheit(temperatura);
-            println!("temperatura em fahrenheit: {f}");
-            break;
-        }else{
-            break;
-        };
+        }
     }
 }
